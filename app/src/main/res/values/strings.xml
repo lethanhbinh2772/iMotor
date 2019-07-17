@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ViewPager</string>
+    <string name="login">Đăng Nhập</string>
+    <string name="phone_typein">Nhập số điện thoại</string>
+
+    <string name="name_typein">Tên</string>
+    <string name="user_phone">Số điện thoại</string>
+    <string name="lisense_plate">Biển số</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_horizontal_medium">16dp</dimen>
+    <dimen name="margin_vertical_huge">32dp</dimen>
+
+
+    <dimen name="text_super_small">8sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_huge">20sp</dimen>
+</resources>
