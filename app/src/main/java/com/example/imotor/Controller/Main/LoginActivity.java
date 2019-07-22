@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.imotor.Model.Login;
 import com.example.imotor.Model.LoginResult;
 import com.example.imotor.R;
+import com.example.imotor.Utilities.AppConfig;
 import com.example.imotor.iMotorService.IMotorService;
 import com.google.gson.Gson;
 
@@ -39,38 +40,44 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        final GetLoginResult getLoginResult = new GetLoginResult("", "", "");
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://45.118.144.19:1904/api/Service/")
-                .build();
-        retrofit.create(IMotorService.class).getLoginResult(getLoginResult).enqueue(new Callback<ResponseBody>() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    String strJson = response.body().string();
-                    Gson gson = new Gson();
-                    final LoginResult loginResult = gson.fromJson(strJson, LoginResult.class);
-                    btnLogin.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (edtPhoneNumber.equals(loginResult.getPhone())) {
+            public void onClick(View view) {
+
+                GetLoginResult getLoginResult = new GetLoginResult("0387490078", "hjgjhg", "android");
+                Retrofit retrofit = new Retrofit.Builder()
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .baseUrl("http://45.118.144.19:1904/api/")
+                        .build();
+                retrofit.create(IMotorService.class).getLoginResult(getLoginResult).enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        try {
+                            String strJson = response.body().string();
+                            Gson gson = new Gson();
+                            Login login = gson.fromJson(strJson, Login.class);
+
+                            String userPhoneNo = login.getResult().getPhone();
+
+                            if (edtPhoneNumber.getText().equals(userPhoneNo)) {
+                                AppConfig.setPhoneNumber(userPhoneNo, LoginActivity.this);
                                 Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                 startActivity(intent);
+                                finish();
                             } else {
-                                Toast.makeText(LoginActivity.this, "Sai sdt", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Action failed! Re-attempt action", Toast.LENGTH_SHORT).show();
                             }
-
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
 
+                    }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                    }
+                });
 
             }
         });

@@ -1,0 +1,29 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_vertical_small"
+    android:layout_marginVertical="@dimen/margin_spacing_vertical_small"
+    android:orientation="vertical"
+    android:elevation="@dimen/card_elevation_default"
+    >
+
+    <TextView
+        android:id="@+id/tv_material_name_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_huge" />
+
+    <TextView
+        android:id="@+id/tv_material_price_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_medium" />
+
+    <TextView
+        android:id="@+id/tv_material_service_life_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_small" />
+
+
+</android.support.v7.widget.CardView>

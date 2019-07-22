@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="margin_vertical_small">8dp</dimen>
     <dimen name="margin_horizontal_medium">16dp</dimen>
     <dimen name="margin_vertical_huge">32dp</dimen>
+    <dimen name="margin_spacing_vertical_small">2dp</dimen>
+
+    <dimen name="card_elevation_default">2dp</dimen>
 
 
     <dimen name="text_super_small">8sp</dimen>

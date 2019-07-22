@@ -6,4 +6,10 @@
     <string name="name_typein">Tên</string>
     <string name="user_phone">Số điện thoại</string>
     <string name="lisense_plate">Biển số</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
