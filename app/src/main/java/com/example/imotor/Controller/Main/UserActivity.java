@@ -80,9 +80,7 @@ public class UserActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_item_parts) {
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
 
     }

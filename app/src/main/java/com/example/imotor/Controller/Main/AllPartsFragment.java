@@ -41,6 +41,7 @@ public class AllPartsFragment extends Fragment {
         getData();
         return viewRoot;
     }
+
     private void getData() {
         GetAllItems getAllItems = new GetAllItems("28B1-0009", "", "1");
         Retrofit retrofit = new Retrofit.Builder()
@@ -58,7 +59,7 @@ public class AllPartsFragment extends Fragment {
                     rvAllItems.setLayoutManager(linearLayoutManager);
                     RecyclerViewAllItemsAdapter adapter = new RecyclerViewAllItemsAdapter();
                     adapter.setContext(getContext());
-                    adapter.setData(getPriceListMaterial.getResult());
+                    adapter.setData(getPriceListMaterial.getResult().toArray(Object));
                     rvAllItems.setAdapter(adapter);
 
                 } catch (IOException e) {
